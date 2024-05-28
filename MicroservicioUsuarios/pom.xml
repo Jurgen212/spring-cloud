@@ -8,7 +8,7 @@
 		<version>3.2.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.co.dosman.usuarios</groupId>
+	<groupId>com.co.sanclemente.usuarios</groupId>
 	<artifactId>microservicio-usuarios</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>microservicio-usuarios</name>
@@ -56,12 +56,12 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.co.dosman.common</groupId>
+			<groupId>com.co.sanclemente.common</groupId>
 			<artifactId>MicroservicioCommon</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-			<groupId>com.co.dosman.common</groupId>
+			<groupId>com.co.sanclemente.common</groupId>
 			<artifactId>MicroservicioCommonService</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>

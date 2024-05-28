@@ -8,7 +8,7 @@
 		<version>3.2.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.co.dosman.eureka</groupId>
+	<groupId>com.co.sanclemente.eureka</groupId>
 	<artifactId>microservicio-eureka</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>microservicio-eureka</name>

@@ -8,7 +8,7 @@
 		<version>3.2.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.co.dosman.examenes</groupId>
+	<groupId>com.co.sanclemente.examenes</groupId>
 	<artifactId>microservicio-examenes</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>microservicio-examenes</name>
@@ -57,12 +57,12 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.co.dosman.common</groupId>
+			<groupId>com.co.sanclemente.common</groupId>
 			<artifactId>MicroservicioCommon</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-			<groupId>com.co.dosman.common</groupId>
+			<groupId>com.co.sanclemente.common</groupId>
 			<artifactId>MicroservicioCommonService</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
