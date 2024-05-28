@@ -1,92 +1,69 @@
-# Spring Cloud with Eureka
-This project is a simple demonstration of a microservices architecture using Spring Cloud and Netflix's Eureka for service discovery.
+# parcial 2 - Investigaciones realizadas 
+### Por Jurgen Sanclemente
+A continuacion se anexan las preguntas y sus respectivas respuestas en el parcial del segundo corte.
 
-## Key Concepts and Annotations
-This project uses a number of Spring Framework features and annotations. Here's a brief explanation of each:
+## 1. Dentro de este mismo documento deberá investigar y colocar el significado de cada una de las dependencias de spring descritas anteriormente (SpringWeb, SpringDevTools, SpringDataJPA, PosgresDriver, )
 
-### Spring Framework and Java Features
-| Feature | Description |
-| --- | --- |
-| **Spring Web** | Provides common web-specific utilities for both Servlet and Portlet environments. |
-| **Spring Dev Tools** | Provides automatic restart for easier development. |
-| **Spring Data JPA** | Simplifies the implementation of data access layers by providing a platform to implement domain-driven design repositories. |
-| **PostgreSQL Driver** | JDBC driver that allows Java programs to connect to a PostgreSQL database using standard, database independent Java code. |
-| **Java Generics** | Generics in Java provide a way to create classes, interfaces, and methods that operate with types as parameters. They allow you to design reusable code that can work with different types while providing compile-time type safety. |
-| **Advantages Generics** | - Type Safety: Generics enable early detection of type mismatches at compile time, preventing type-related errors at runtime. - Code Reusability: With generics, you can write classes and methods that can be used with different data types, reducing the need for duplicate code. - Elimination of Type Casting: Generics eliminate the need for explicit type casting by handling type conversions implicitly. - Compile-Time Checking: Any violations of the type constraints specified by generics are caught by the compiler, ensuring more robust and error-free code. - Clarity and Readability: Code using generics tends to be clearer and more readable as it expresses intentions and constraints explicitly. |
-| **Use Cases Generics** | - Collections Framework: The Java Collections Framework (e.g., ArrayList, HashMap) extensively utilizes generics to provide type-safe collections. - Custom Data Structures: Generics are used to create custom data structures (e.g., stacks, queues) that can operate on any data type. - Utility Classes: Generic utility classes and methods (e.g., Collections.sort) can be written to operate on different types of objects. - Design Patterns: Generics facilitate the implementation of design patterns such as the Factory Pattern or the Observer Pattern by allowing flexibility with object types. |
+- Spring Web: Esta dependencia proporciona soporte para crear aplicaciones web utilizando el framework Spring. Incluye funcionalidades como controladores, manejo de peticiones HTTP, vistas, entre otros. 
+- Spring Dev Tools: Spring Dev Tools es una colección de herramientas que facilitan el desarrollo de aplicaciones Spring Boot. Incluye capacidades de reinicio automático de la aplicación cuando se detectan cambios en el código fuente, lo que agiliza el ciclo de desarrollo al evitar la necesidad de reiniciar manualmente el servidor.
+- Spring Data JPA: Spring Data JPA es una capa de abstracción que simplifica el acceso a bases de datos relacionales desde aplicaciones Spring
+PostgresDriver: Esta referencia parece ser la dependencia del controlador JDBC (Java Database Connectivity) para PostgreSQL. JDBC es un estándar de Java que define cómo se pueden acceder a las bases de datos desde aplicaciones Java
 
-### Annotations
-| Annotation | Description |
-| --- | --- |
-| **@Data** | A Lombok annotation to generate getters, setters, equals, hashCode and toString methods. |
-| **@NoArgsConstructor** | A Lombok annotation to generate a constructor with no parameters. |
-| **@AllArgsConstructor** | A Lombok annotation to generate a constructor with one parameter for each field. |
-| **@Entity** | Specifies that the class is an entity and is mapped to a database table. |
-| **@Table** | Specifies the primary table for the annotated entity. |
-| **@Id** | Specifies the primary key of an entity. |
-| **@GeneratedValue** | Provides for the specification of generation strategies for the values of primary keys. |
-| **@GeneratedValue(strategy = GenerationType.IDENTITY)** | Specifies that the primary key generation is to be done by the persistence provider at the time of insert. |
-| **@Column** | Specifies a mapped column for a persistent property or field. |
-| **@Temporal** | Specifies the type to be used in mapping a java.util.Date or java.util.Calendar. |
-| **@Temporal(TemporalType.TIMESTAMP)** | Specifies that a persistent date or time field should be persisted as a timestamp in the database. |
-| **@PrePersist** | Specifies a callback method for the corresponding lifecycle event. |
-| **@Service** | Indicates that an annotated class is a "Service". |
-| **@Transactional** | Describes transaction attributes on a method or class. |
-| **@Transactional(readOnly = true)** | Spring annotation that sets the `readOnly` attribute of a transaction to `true`. |
-| **@RestController** | A convenience annotation that is itself annotated with @Controller and @ResponseBody. |
-| **Optional** | A container object which may or may not contain a non-null value. |
-| **@PathVariable** | Indicates that a method parameter should be bound to a URI template variable. |
-| **@RequestMapping** | Annotation for mapping web requests onto methods in request-handling classes. |
-| **ResponseEntity<?>** | Represents the entire HTTP response. Good for returning file downloads. |
-| **spring.application.name=MicroservicioGateway** | This property sets the name of the application. It is used by Spring Cloud for service discovery and other tasks. |
-| **server.port=8090** | This property sets the port on which the server will listen for requests.|
-| **Fetch=FetchType.LAZY** | Indicates how the associated Student type objects are retrieved when the list is accessed. Set to LAZY, where Student objects will not be loaded immediately when the list is accessed. They will be loaded only when explicitly accessed.|
+## 2. Debe investigar y colocar en este documento el significado de cada uno de los decoradores que se encuentra en esta clase. (@Id, @GeneratedValue, @Column, @Temporal, @PrePersist, @Entity, @Table)
 
-### Spring Cloud Eureka
-| Concept | Description |
-| --- | --- |
-| **Eureka Server** | Service registry for resilient mid-tier load balancing and failover. |
-| **@EnableEurekaServer** | Annotation to start a Eureka Server. |
-| **@EnableDiscoveryClient** | Annotation to make your Spring Boot application act as a Eureka client. |
-| **eureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka** | This property specifies the URL of the Eureka server for service discovery. |
+- @Id: Esta anotación se utiliza para marcar una propiedad de una clase como la clave primaria de una entidad en JPA. 
+- @GeneratedValue: Se utiliza en combinación con @Id para especificar cómo se generará el valor de la clave primaria
+- @Column: Esta anotación se utiliza para especificar el mapeo entre el atributo de una entidad y la columna de la base de datos. 
+- @Temporal: Se utiliza para especificar el tipo de mapeo temporal de un atributo de fecha o hora en una entidad. Puede ser utilizado con los tipos de datos java.util.Date, java.util.Calendar y java.time.LocalDate, java.time.LocalDateTime, java.time.LocalTime en JPA para indicar cómo se debe persistir el atributo temporalmente en la base de datos.
+- @PrePersist: Esta anotación se utiliza para marcar un método que se debe ejecutar justo antes de que se persista una entidad en la base de datos. 
+- @Entity: Se utiliza para marcar una clase como una entidad JPA, lo que indica que la clase debe ser mapeada a una tabla en la base de datos
+- @Table: Esta anotación se utiliza para especificar el nombre de la tabla de base de datos a la que se debe asignar una entidad. 
 
-### Spring Cloud Gateway
-| Concept | Description |
-| --- | --- |
-| **spring.cloud.gateway.mvc.routes[0].id=microservicio-usuarios** | This property sets the ID of the first route in the Gateway. |
-| **spring.cloud.gateway.mvc.routes[0].uri=lb://microservicio-usuarios** | This property sets the URI of the service where the requests will be forwarded. The `lb` scheme indicates that the load balancer will be used. |
-| **spring.cloud.gateway.mvc.routes[0].predicates=Path=/api/alumno/** | This property defines the path for which the route is valid. Any request matching this path will be forwarded to the service specified in the `uri` property. |
-| **spring.cloud.gateway.mvc.routes[0].filters=StripPrefix=2** | This property defines a filter that will strip the first two segments of the path before forwarding the request to the service. |
+## 3. Investigar y colocar dentro del este documento el concepto del decorador Transaction.
 
-## Getting Started
-### Prerequisites
-- Java 8 or later
-- Maven
-- Spring Boot
+- El decorador @Transactional es una anotación en Spring que se utiliza para indicar que un método o una clase debe ser gestionado por transacciones. Esta anotación se utiliza al trabajar con bases de datos relacionales, donde es fundamental mantener la consistencia de los datos a través de transacciones.
 
-### Installation
-1. Clone the repository
-```bash
-git clone https://github.com/SebasDosman/spring_cloud_api.git
-```
+## 4. Definir que significa los siguientes conceptos en Spring Boot ( ResponseEntity<?>, Optional, @PathVariable)
 
-2. Navigate to the project directory
-```bash
-cd MicroservicioCursos
-cd MicroservicioEureka
-cd MicroservicioExamenes
-cd MiroservicioGateway
-cd MicroservicioUsuarios
-```
+- ResponseEntity<?>: ResponseEntity es una clase proporcionada por Spring Framework que representa toda la respuesta HTTP: código de estado, encabezados y cuerpo. Permite controlar directamente todos los aspectos de la respuesta devuelta desde un controlador de Spring. El genérico <?> significa que puede retornar cualquier clase de objeto.
 
-3. Build the project
-```bash
-mvn clean install
-```
+- Optional: es una clase que se utiliza para representar un valor opcional. En el contexto de Spring Boot, Optional se utiliza principalmente para evitar el manejo de valores nulos de manera explícita.
 
-### Usage
-Start the Eureka server first, and then start the other services. They will automatically register themselves with the Eureka server.
+- @PathVariable es una anotación que se utiliza en métodos de controladores para mapear variables de la URL a parámetros de método en un controlador de Spring. Esto permite que los valores proporcionados en la URL se pasen como argumentos al método del controlador. Por ejemplo, si tienes una URL como /usuarios/{id}, donde {id} es una variable en la URL, puedes usar @PathVariable para vincular el valor de {id} a un parámetro en el método del controlador. 
 
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-# spring-cloud
+## 5. Buscar y poner en esta parte el concepto de Spring Cloud Gateway
+
+- Es un proyecto de spring que proporciona una forma de enrutamiento y filtrado de soluciones para aplicaciones basadas en la nube. Ofrece características como: Enrutamiento dinámico (Cambiar rutas sin reiniciar aplicación ), Filtrado de soluciones ( Modificar solicitudes HTTP entrantes o salientes), Integración con servicios de descubrimiento como Eureka, Balanceo de carga.
+
+## 6. con la orientación del profesor colocar en este parte del documento el significado de cada una de las propiedades del anterior archivo ( eureka.client.service-url.defaultZone, spring.cloud.gateway.routes[0].id, spring.cloud.gateway.routes[0].uri, spring.cloud.gateway.routes[0].predicates, spring.cloud.gateway.routes[0].filters )
+
+- eureka.client.service-url.defaultZone: Esta propiedad se utiliza para configurar la ubicación del servidor de Eureka en tu aplicación. Eureka es un servicio de descubrimiento que permite a las aplicaciones cliente encontrar y comunicarse entre sí sin necesidad de conocer las direcciones exactas de red.
+- spring.cloud.gateway.routes[0].id: Esta propiedad define un identificador único para una ruta en Spring Cloud Gateway. 
+- spring.cloud.gateway.routes[0].uri: Aquí se especifica la URI de destino a la que se redirigirán las solicitudes que coincidan con esta ruta en particular
+- spring.cloud.gateway.routes[0].predicates: Los predicados definen las condiciones bajo las cuales una ruta específica debe aplicarse.
+- spring.cloud.gateway.routes[0].filters: Los filtros son transformaciones o acciones que se aplican a las solicitudes o respuestas antes o después de que se enrutaron a su destino. 
+
+
+## 7. Antes de continuar investiga y ponlo en esta parte de la actividad que son los genéricos en java , sus ventajas y usos.
+
+- Los genéricos son una característica que permite escribir clases y métodos que puedan trabajar con diferentes tipos de datos sin tener que realizar conversiones. Permiten parametrizar tipos. Un ejemplo: 
+
+- Sin genéricos:
+List strings = new ArrayList();
+Strings.add(“Hola”);
+String saludo = (String) strings.get(0);
+- En el ejemplo anterior, vemos que necesitamos un parseo, para que el dato sea un string, con genérico no hay necesidad de esto: 
+List<String> strings = new ArrayList();
+Strings.add(“Hola”);
+String saludo = strings.get(0);
+- El generico se implementó en la clase List, y esto permite que esta última, pueda recibir cualquier tipo de dato y trabajarlo desde una lista.
+- Las ventajas son: Seguridad de tipos, reutilización de código, abstracción mas fuerte, mejora del rendimiento.
+
+## 8. En este punto investigar y colocar por que se usa ese argumento dentro de esa relación (fetch = FetchType.LAZY)
+
+- Fetch=FetchType.LAZY, indica como se recuperan los objetos de tipo Alumno asociados cuando se acceda a la lista. Se configura como LAZY, donde los objetos Alumno no se cargarán de inmediato cuando se acceda a la lista. Se cargarán solo cuando se acceda explícitamente a ellos.
+- En otras palabras, la carga diferida ( lazy ) permite retrasar la carga o inicialización de un objeto hasta el mismo momento de su utilización ( objetos Alumno ). Esto contribuye a la eficiencia de los programas, evitando la precarga de objetos que podrían no llegar a utilizarse.
+
+
+
+
